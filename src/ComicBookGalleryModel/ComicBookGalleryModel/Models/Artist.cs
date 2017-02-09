@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ComicBookGalleryModel.Models
 {
+   // [Table("Talent")]
     public class Artist
     {
         public Artist()
@@ -14,7 +17,11 @@ namespace ComicBookGalleryModel.Models
         }
 
         public int Id { get; set; }
+        [Required, StringLength(100)] //, Column("FullName")//]
         public string Name { get; set; }
+
+      //  [NotMapped]
+      //  public string Test { get; set; }
 
         public ICollection<ComicBookArtist> ComicBooks { get; set; }
     }
